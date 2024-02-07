@@ -1,0 +1,22 @@
+if __name__ == '__main__':
+    scores = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        
+        scores.append((name,score))
+    
+    
+    lowest_score = min(score for name, score in scores)
+
+    scores_without_lowest = [(name, score) for name, score in scores if score != lowest_score]
+
+    
+    second_lowest_score = min(score for name, score in scores_without_lowest)
+    
+    
+    sorted_names = sorted(scores, key=lambda x: x[0])
+
+    for name , score in sorted_names:
+        if score ==  second_lowest_score :
+            print(name)
