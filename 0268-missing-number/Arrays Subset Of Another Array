@@ -1,0 +1,12 @@
+def isSubset( a1, a2, n, m):
+    
+    f = 0
+    for i in a2:
+        if i in a1:
+            a1.remove(i)
+        else:
+            f = 1
+            break
+    if f == 0:
+        return "Yes"
+    return "No"
