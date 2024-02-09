@@ -1,0 +1,18 @@
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        lose0 = set()
+        lose1 = set()
+        losen = set()
+        for m in matches:
+            if m[0]  not in losen and m[0]  not in lose1 :
+                lose0.add(m[0])
+            if m[1]  in lose0:
+                lose1.add(m[1])
+                lose0.remove(m[1])
+            elif m[1]  in lose1:
+                losen.add(m[1])
+                lose1.remove(m[1])
+            elif m[1]  not in losen:
+                lose1.add(m[1])
+
+        return [sorted(lose0),sorted(lose1)]
